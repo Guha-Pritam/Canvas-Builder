@@ -59,8 +59,8 @@ $(document).ready(function () {
     var addressfield = $("#addressbutton");
     var checkbox = $("#checkboxbutton");
     var radiobutton = $("#radioaddbutton");
-    var submit= $("#submit");
-    var name="";
+    var submit = $("#submit");
+    var name = "";
     $(InputsWrapper).sortable(); // To Make Added Fields Sortable
     /*---------------------------------------------------------------
     To Add Name Field
@@ -68,8 +68,8 @@ $(document).ready(function () {
     $(namefield).click(function () {
         if (x <= MaxInputs) {
             nameFieldCount++;
-            $(InputsWrapper).append('<div>' + '<div class="name" id="InputsWrapper_0' + nameFieldCount + '">' + '<label>Name:' + nameFieldCount + '</label>' +
-                '<input type="text" class="name" name="mytext[]" id="field_' + nameFieldCount + '" placeholder="Name ' + nameFieldCount + '"/>' + '<button class="removeclass0">x</button>' +
+            $(InputsWrapper).append('<div>' + '<div class="name" id="InputsWrapper_0' + nameFieldCount + '">' + '<input type="text" class="name" name="mytext[]" id="field_' + nameFieldCount + '" placeholder="Name ' + nameFieldCount + '"/>' +
+                '<input type="text" class="name" name="mytext[]" id="field_' + nameFieldCount + '" placeholder="Name ' + nameFieldCount + '"readonly/>' + '<button class="removeclass0">x</button>' +
                 '<button class="addclass0">+</button>' + '<br>' + '</div>' + '</div>');
             x++;
         }
@@ -89,65 +89,18 @@ $(document).ready(function () {
         return false;
     });
     $("body").on("keyup", ".name", function () {
-        
-        // if(this.value!='undefined'undefined)
-        // alert( this.value );
-        // InputValues.innerHTML="Name:"+this.value;
-        // $(InputValues).append('<div>' + this.value+ '</div>');
         return false;
-      });
+    });
 
 
-    
-        $(submit).click(function () { 
-            var name="";
-            var email ="";
-            var address="";
-
-            $("input[type='text'].name").each(function () {  
-
-                name=name+$(this).val()+",";
-            }) 
-            
-            $("input[type='text'].email").each(function () {  
-
-                email=email+$(this).val()+",";                 
-            }) 
-            $("textarea[type='text'].address").each(function () {  
-
-                address=address+$(this).val()+",";               
-            }) 
-
-            var lastCharname = name.slice(-1);
-            var lastCharemail = email.slice(-1);
-            var lastCharaddress = address.slice(-1);
-            if (lastCharname == ',') {
-                name = name.slice(0, -1);
-                }
-            if (lastCharemail == ',') {
-                email = email.slice(0, -1);
-                }
-            if (lastCharaddress == ',') {
-                address = address.slice(0, -1);
-                }
-                
-            var output="<b>Name:</b>"+name+"<br><b>Email:</b>"+email+"<br><b>Address:</b>"+address
-            // alert(output);  
-            InputValues.innerHTML=output;
-           
-            return false;   
-
-        });  
-
-     
     /*------------------------------------------------
     To Add Email Field
     -------------------------------------------------*/
     $(emailfield).click(function () {
         if (x <= MaxInputs) {
             emailFieldCount++;
-            $(InputsWrapper).append('<div>' + '<div class="email" id="InputsWrapper_1' + emailFieldCount + '">' + '<label>Email:' + emailFieldCount + '</label>' +
-                '<input type="text" class="email" name="myemail[]" id="field_' + emailFieldCount + '" placeholder="Email' + emailFieldCount + '"/>' + '<button class="removeclass1">x</button>' +
+            $(InputsWrapper).append('<div>' + '<div class="email" id="InputsWrapper_1' + emailFieldCount + '">' + '<input type="text" class="email" name="myemail[]" id="field_' + emailFieldCount + '" placeholder="Email' + emailFieldCount + '"/>' +
+                '<input type="text" class="email" name="myemail[]" id="field_' + emailFieldCount + '" placeholder="Email' + emailFieldCount + '"readonly/>' + '<button class="removeclass1">x</button>' +
                 '<button class="addclass1">+</button>' + '<br>' + '</div>' + '</div>');
             x++;
         }
@@ -201,13 +154,9 @@ $(document).ready(function () {
             checkboxdivCount++;
             checkbox_sub_para_Count++;
             $(InputsWrapper).append('<div class="checkbox" id="InputsWrapper_3_' + checkboxdivCount + '">' + '<p class="checkbox_child" id="para' + checkbox_sub_para_Count + '">' +
-                '<label>CheckBox:' + checkboxFieldCount + '</label>' + '<input type="checkbox" name="mycheckbox[]" id="field_' + checkboxFieldCount + '" value="CheckBox' +
-                checkboxFieldCount++ + '"/>' + '<button class="removeclass3">x</button>' + '<button class="addclass3">+</button>' + '</p>' + '<p class="checkbox_child" id="para' +
-                checkbox_sub_para_Count + '" >' + '<label>CheckBox:' + checkboxFieldCount + '</label>' + '<input type="checkbox" name="mycheckbox[]" id="field_' +
-                checkboxFieldCount + '" value="CheckBox' + checkboxFieldCount++ + '"/>' + '<button class="removeclass3">x</button>' + '<button class="addclass3">+</button>' + '</p>' +
-                '<p class="checkbox_child" id="para' + checkbox_sub_para_Count + '" >' + '<label>CheckBox:' + checkboxFieldCount + '</label>' +
-                '<input type="checkbox" name="mycheckbox[]" id="field_' + checkboxFieldCount + '" value="CheckBox' + checkboxFieldCount + '"/>' +
-                '<button class="removeclass3">x</button>' + '<button class="addclass3">+</button>' + '</p>' + '</div>');
+                '<input type="text" class="text" placeholder="options">' + '</>' + '<input type="checkbox" name="mycheckbox[]" id="field_' + checkboxFieldCount + '" value="CheckBox' +
+                checkboxFieldCount++ + '"/>' + '<button class="removeclass3">x</button>'
+            );
             x++;
         }
         return false;
@@ -217,14 +166,7 @@ $(document).ready(function () {
         x--;
         return false;
     });
-    $("body").on("click", ".addclass3", function () {
-        checkboxFieldCount++; // To Add More Check-Box
-        $(this).parent('p').parent('div').append('<p class="checkbox_child" id="para' + checkbox_sub_para_Count + '">' + '<label>CheckBox:' + checkboxFieldCount + '</label>' +
-            '<input type="checkbox" name="mycheckbox[]" id="field_' + checkboxFieldCount + '" value="CheckBox' + checkboxFieldCount + '"/>' +
-            '<button class="removeclass3">x</button>' + '<button class="addclass3">+</button>' + '</p>');
-        x++;
-        return false;
-    });
+
     /*------------------------------------------------
     To Add Radio-Button
     -------------------------------------------------*/
@@ -234,13 +176,8 @@ $(document).ready(function () {
             radiobuttondivCount++;
             radio_sub_para_Count++;
             $(InputsWrapper).append('<div class="radiobutton" id="InputsWrapper_4_' + radiobuttondivCount + '">' + '<p class="radiobutton_child" id="para' + radio_sub_para_Count +
-                '">' + '<label>Radio:' + radiobuttonFieldCount + '</label>' + '<input type="radio" name="myradio[]" id="field_' + radiobuttonFieldCount + '" placeholder="Radio_' +
-                radiobuttonFieldCount++ + '"/>' + '<button class="removeclass4">x</button>' + '<button class="addclass4">+</button>' + '</p>' +
-                '<p class="radiobutton_child" id="para' + radio_sub_para_Count + '">' + '<label>Radio:' + radiobuttonFieldCount + '</label>' +
-                '<input type="radio" name="myradio[]" id="field_' + radiobuttonFieldCount + '" placeholder="Radio_' + radiobuttonFieldCount++ + '"/>' +
-                '<button class="removeclass4">x</button>' + '<button class="addclass4">+</button>' + '</p>' + '<p class="radiobutton_child" id="para' + radio_sub_para_Count +
-                '">' + '<label>Radio:' + radiobuttonFieldCount + '</label>' + '<input type="radio" name="myradio[]" id="field_' + radiobuttonFieldCount + '" placeholder="Radio_' +
-                radiobuttonFieldCount + '"/>' + '<button class="removeclass4">x</button>' + '<button class="addclass4">+</button>' + '</p>' + '</div>');
+                '">' + '<input type="text" class="radio" placeholder="options">' + '</>'+ '<input type="radio" name="myradio[]" id="field_' + radiobuttonFieldCount + '" placeholder="Radio_' +
+                radiobuttonFieldCount++ + '"/>' + '<button class="removeclass4">x</button>' + '</div>');
             x++;
         }
         return false;
@@ -250,16 +187,17 @@ $(document).ready(function () {
         x--;
         return false;
     });
-    $("body").on("click", ".addclass4", function () {
-        radiobuttonFieldCount++; // To Add More Radio-Button
-        $(this).parent('p').parent('div').append('<p class="radiobutton_child" id="para' + radio_sub_para_Count + '">' + '<label>Radio:' + radiobuttonFieldCount + '</label>' +
-            '<input type="radio" name="myradio[]" id="field_' + radiobuttonFieldCount + '" placeholder="Radio_' + radiobuttonFieldCount + '"/>' +
-            '<button class="removeclass4">x</button>' + '<button class="addclass4">+</button>' + '</p>');
-        x++;
-        return false;
-    });
+    
     $("#reset").on("click", function () {
         $("#InputsWrapper").empty(); // To Reset All Elements
     });
 });
+
+function myFunction() {
+    let output = document.getElementById("InputsWrapper");
+    document.getElementById("demo").innerHTML = output;
+    console.log(output)
+}
+
+myFunction();
 

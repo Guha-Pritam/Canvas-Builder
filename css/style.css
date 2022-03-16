@@ -9,7 +9,7 @@
 	height: 1000px;
 	position: absolute;
 	top: 20px;
-	left: 350px;
+	left: 136px;
 	overflow: auto;
 }
 .menu {
@@ -171,7 +171,7 @@ div.name {
 	margin-top: 15px;
 	margin-left: 10px;
 	width: 300px;
-	height: 35px;
+	height: 59px;
 	border-radius: 5px;
 	border: 1px solid blue;
 	padding: 5px;
@@ -187,7 +187,7 @@ div.email {
 	margin-top: 15px;
 	margin-left: 10px;
 	width: 300px;
-	height: 35px;
+	height: 59px;
 	border-radius: 5px;
 	border: 1px solid blue;
 	padding: 5px;
@@ -252,14 +252,24 @@ div.address p {
 	cursor: pointer;
 }
 
-.col-sm-6 {
-	position: fixed;
-	right: 0%;
-	background-color: #fff;
-	width: 220px;
-	height: 437px;
-	padding: 15px;
-	border: 1px solid #000;
-	border-radius: 4px;
-	box-shadow: 0 0 5px #000;
+.text{
+	width: 91px;
+}
+
+.removeclass3{
+	margin-left: 17px;
+}
+
+.radio{
+	width: 84px;
+}
+
+#demo{
+	border: 1px solid black;
+	height: 900px;
+    width: 28%;
+    position: absolute;
+    left: 71%;
+	top: 20px;
+	border-radius: 45px;
 }
